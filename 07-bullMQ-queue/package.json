@@ -1,0 +1,19 @@
+{
+  "name": "05-user-profile",
+  "version": "1.0.0",
+  "description": "",
+  "main": "api.js",
+  "scripts": {
+    "dev:api": "node --watch src/api.js",
+    "dev:worker": "node --watch src/worker.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "bullmq": "^5.77.0",
+    "express": "^5.2.1",
+    "ioredis": "^5.10.1"
+  }
+}
