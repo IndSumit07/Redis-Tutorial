@@ -2,6 +2,7 @@ import express from "express";
 import Redis from "ioredis";
 
 const app = express();
+app.use(express.json());
 
 const redis = new Redis(process.env.REDIS_URL || "redis://localhost:6379");
 
@@ -12,7 +13,7 @@ app.post("/user/:id/json", async (req, res) => {
 
 app.get("/user/:id/json", async (req, res) => {
   const user = await redis.get(`user:${req.params.id}:json`);
-  res.json(user ? JSON.parse(user) : null);
+  res.json(JSON.parse(user) || null);
 });
 
 app.post("/user/:id/hash", async (req, res) => {
